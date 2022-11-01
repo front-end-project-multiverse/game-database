@@ -8,7 +8,7 @@ function gameDetails() {
 
     useEffect(() => {
         fetch(`https://www.freetogame.com/api/game?id=${id}`)
-            .then((r) => r.json())
+            .then((response) => response.json())
             .then(setGame)
     }, [id])
 
