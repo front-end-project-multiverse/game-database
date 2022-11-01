@@ -1,10 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+// import GameCard from './components/GameCard'
+import Button from 'react-bootstrap/Button';
 
 function App() {
   return (
     <div>
-      Hello
+      {/* <GameCard/> */}
+      <Button variant="primary">Go somewhere</Button>
     </div>
   );
 }
