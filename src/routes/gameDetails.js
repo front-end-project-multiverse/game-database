@@ -3,7 +3,7 @@ import { GameCard } from "../components/gameCard"
 
 function GameDetails() {
 
-    const [game, setGame] = useState({})
+    const [game, setGame] = useState(null)
 
     async function fetchData() {
         await fetch("https://free-to-play-games-database.p.rapidapi.com/api/games", {
@@ -30,7 +30,7 @@ function GameDetails() {
     return (
         <div>
             <h1>Game Details</h1>
-            <GameCard game={game} />
+            {game !== null && <GameCard game={game} />}
         </div>
     )
 }
