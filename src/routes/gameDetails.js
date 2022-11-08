@@ -1,24 +1,38 @@
 import React, { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { GameCard } from "../components/gameCard"
 
+function GameDetails() {
 
-function gameDetails() {
     const [game, setGame] = useState({})
-    const { id } = useParams()
+
+    async function fetchData() {
+        await fetch("https://free-to-play-games-database.p.rapidapi.com/api/games", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, OPTIONS, POST, PUT",
+                'X-RapidAPI-Key': '9ca1093946msh6ac41c1e7eb41e3p1d009bjsnccd03c100be5',
+                'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+            },
+        })
+            .then((response) => response.json())
+            .then(data => setGame(data))
+
+    }
 
     useEffect(() => {
-        fetch(`https://www.freetogame.com/api/game?id=${id}`)
-            .then((response) => response.json())
-            .then(setGame)
-    }, [id])
+        fetchData()
+        console.log(game)
+    }, []
+    )
 
     return (
         <div>
-            <h1>{game.title}</h1>
-            <img src={game.thumbnail} alt={game.title} />
-            <p>{game.short_description}</p>
+            <h1>Game Details</h1>
+            <GameCard game={game} />
         </div>
     )
 }
 
-export default gameDetails
+export { GameDetails }
