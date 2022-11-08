@@ -1,20 +1,27 @@
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+//use Bootstrap Card component to display game info
 
-function GameCard() {
-  return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
-  );
+import React from "react";
+import "bootstrap/dist/css/bootstrap.css"
+import { Card } from "react-bootstrap";
+
+
+
+function GameCard({ game }) {
+
+    return (
+        <div>
+            {game.map(game =>
+                <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={game.thumbnail} />
+                    <Card.Body>
+                        <Card.Title>{game.title}</Card.Title>
+                        <Card.Text>
+                            {game.short_description}
+                        </Card.Text>
+                    </Card.Body>
+                </Card>)}
+        </div>
+    )
 }
 
-export default GameCard;
+export { GameCard }

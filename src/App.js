@@ -1,16 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
-// import GameCard from './components/GameCard'
-import Button from 'react-bootstrap/Button';
+import { GameDetails } from './routes/gameDetails';
+import TypesExample from './components/SearchBar';
 import "bootstrap/dist/css/bootstrap.css"
 
+
+import React, { useEffect, useState } from "react"
+import "bootstrap/dist/css/bootstrap.css"
+import { Card } from "react-bootstrap";
 function App() {
+
   return (
     <div>
-      {/* <GameCard/> */}
-      <Button variant="primary">Go somewhere</Button>
+      <h1>Game Details</h1>
+      <GameDetails />
     </div>
-  );
+  )
 }
 
 export default App;
