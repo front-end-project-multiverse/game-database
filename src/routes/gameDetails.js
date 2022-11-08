@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React, { useEffect, useState } from "react"
 import { GameCard } from "../components/gameCard"
 
@@ -30,12 +28,10 @@ function GameDetails() {
     )
 
     return (
-        <div>
-            <h1>Game Details</h1>
+          <div className='d-flex flex-wrap'>
             {game !== null && <GameCard game={game} />}
         </div>
     )
 }
 
 export { GameDetails }
->>>>>>> 3aadb2b3f08ebca759ec469751baaa986eb1c0e5
