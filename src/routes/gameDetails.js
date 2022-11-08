@@ -18,11 +18,11 @@ function GameDetails() {
         })
             .then((response) => response.json())
             .then(data => setGame(data))
-
     }
 
     useEffect(() => {
         fetchData()
+
         console.log(game)
     }, []
     )
