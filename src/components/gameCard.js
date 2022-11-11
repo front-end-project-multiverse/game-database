@@ -35,6 +35,7 @@ function GameCard({ game }) {
                   borderRadius: "12px",
                   backgroundColor: "#80CBC4",
                   color: "black",
+                  paddingTop: "0.1em"
                 }}
               >
                 {game.genre}
