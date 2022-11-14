@@ -1,19 +1,15 @@
 //render games based on category clicked on by navbar
 import React, { useEffect, useState } from "react"
 import { GameCard } from "./gameCard"
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavDropdown } from "react-bootstrap";
-import { Form, Button } from "react-bootstrap";
 
 function TheNavbar() {
 
     //fetch data from API based on category selected
     const [game, setGame] = useState(null)
     const [category, setCategory] = useState("")
-    const [search, setSearch] = useState("")
-    const [searchResults, setSearchResults] = useState([])
 
     async function fetchData() {
         await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${category}`, {
@@ -36,13 +32,7 @@ function TheNavbar() {
     }, [category]
     )
     console.log(game) //testing that the correct category is being selected
-    useEffect(() => {
-        const results = game && game.filter(game =>
-            game.title.toLowerCase().includes(search.toLowerCase())
-        )
-        setSearchResults(results)
-        console.log(searchResults)
-    }, [search])
+
 
     //only render games that match category selected
 
@@ -56,7 +46,6 @@ function TheNavbar() {
                         <NavDropdown.Item onClick={() => setCategory("Strategy")}>Strategy</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => setCategory("Sports")}>Sports</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => setCategory("Racing")}>Racing</NavDropdown.Item>
-                        <NavDropdown.Item onClick={() => setCategory("Adventure")}>Adventure</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => setCategory("Fighting")}>Fighting</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => setCategory("Card")}>Card</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => setCategory("Shooter")}>Shooter</NavDropdown.Item>
