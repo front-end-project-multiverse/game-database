@@ -25,7 +25,7 @@ export default function CommentsBox() {
 
     setCommentData([...commentData, newComment])
     setComments("")
-    setRating()
+    setRating("Select Rating")
 
   }
 
@@ -38,15 +38,16 @@ export default function CommentsBox() {
             placeholder="Leave a review..."
             style={{ backgroundColor: "#6e9095", height: "6em" }}
             onChange={(e)=>setComments(e.target.value)}
+            value={comments}
           ></textarea>
           <div className="d-flex justify-content-between pb-3 pt-2">
-            <select className="form-control" style={{ backgroundColor: "#6e9095", marginRight: "1em" }} onChange={(e)=>setRating(e.target.value)}>
-              <option selected disabled>Rating:</option>
+            <select className="form-control" style={{ backgroundColor: "#6e9095", marginRight: "1em" }} onChange={(e)=>setRating(e.target.value)} value={rating}>
+              <option selected disabled value='Select Rating'>Select Rating:</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
-              <option value="3">4</option>
-              <option value="3">5</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
             </select>
             <button className="btn btn-dark w-25" onClick={handleClick}>Submit</button>
           </div>
