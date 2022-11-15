@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 
-export default function CommentsBox() {
+export default function CommentsBox() {   //pass gameId here as props
   const gameId = 1;
   const [commentData, setCommentData] = useState([
     { id: 1, rating: 5, comments: "not very good", date: "11/11/2022" },
@@ -54,17 +54,20 @@ export default function CommentsBox() {
         </div>
 
         {commentData.map((each) => {
-          return (
-            <>
-              <div className="p-2 m-2" style={{ backgroundColor: "#6e9095", borderRadius: "5px" }}>
-                {each.comments}
-                <div className="d-flex justify-content-between">
-                  <div>Rating: {each.rating}</div>
-                  {each.date}
-                </div>
-              </div>
-            </>
-          );
+
+            if (each.id === gameId) {
+                return (
+                    <>
+                      <div className="p-2 m-2" style={{ backgroundColor: "#6e9095", borderRadius: "5px" }}>
+                        {each.comments}
+                        <div className="d-flex justify-content-between">
+                          <div>Rating: {each.rating}</div>
+                          {each.date}
+                        </div>
+                      </div>
+                    </>
+                  );
+            }
         })}
       </div>
     </>
