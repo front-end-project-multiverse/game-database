@@ -110,8 +110,8 @@ export default function CommentsBox() { //pass gameId here as props
           if (each.id === gameId) {
             return (
               <>
-                <div className="comments" style={{  background: "linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(57,131,135,1) 47%, rgba(32,108,124,1) 100%);borderRadius: '5px'" }}>
-                  <h6>{each.userName}</h6>
+                <div className="comments">
+                  <h6 className='userName'>{each.userName}</h6>
                   {each.comments}
                   <h6>
                     <div className="d-flex justify-content-between pt-3">

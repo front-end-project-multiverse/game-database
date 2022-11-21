@@ -89,7 +89,7 @@ code {
 }
 
 .rating {
-  width: 280px;
+  width: 310px;
   height: 40px;
   margin-right: 1em;
 }
@@ -128,4 +128,9 @@ code {
 
 ::placeholder {
   color: rgba(0, 0, 0, 0.532);
+}
+
+.userName {
+  color: white;
+  text-shadow: 2px 2px 5px black;
 }
