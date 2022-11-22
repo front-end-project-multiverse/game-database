@@ -5,11 +5,11 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavDropdown } from "react-bootstrap";
 
-function TheNavbar() {
+function TheNavBar() {
 
     //fetch data from API based on category selected
     const [game, setGame] = useState(null)
-    const [category, setCategory] = useState("")
+    const [category, setCategory] = useState("shooter")
 
     async function fetchData() {
         await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${category}`, {
@@ -64,9 +64,12 @@ function TheNavbar() {
                     <Nav.Link href="/register">Register</Nav.Link>
                 </Nav>
             </Navbar>
+            <div className='d-flex flex-wrap'>
+            {/* {game !== null && <GameCard game={game} />} */}
+        </div>
         </div>
     )
 }
 
-export { TheNavbar }
+export { TheNavBar }
 
