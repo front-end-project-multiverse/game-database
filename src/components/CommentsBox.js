@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-export default function CommentsBox() { //pass gameId here as props
- 
+export default function CommentsBox() {
+  //pass gameId here as props
+
   const gameId = 2;
   const [commentData, setCommentData] = useState([
     { id: 1, rating: 5, userName: "SmallBananaMan", comments: "not very good", date: "11/11/2022" },
@@ -10,26 +11,26 @@ export default function CommentsBox() { //pass gameId here as props
   ]);
   const [rating, setRating] = useState("0");
   const [comments, setComments] = useState("");
-  const [isChecked, setIsChecked] = useState(true)
-  const [averageRating, setAverageRating] = useState(0)
+  const [isChecked, setIsChecked] = useState(true);
+  const [averageRating, setAverageRating] = useState(0);
 
   useEffect(() => {
     const getRating = () => {
-      setAverageRating(0)
-      let total = 0
-      let count = 0
-      commentData.map(each => {
+      setAverageRating(0);
+      let total = 0;
+      let count = 0;
+      commentData.map((each) => {
         if (each.id === gameId) {
-          total += parseInt(each.rating)
-          count ++
+          total += parseInt(each.rating);
+          count++;
         }
-      })
-        setAverageRating ((total/count).toFixed(2))
-      return averageRating
-    }
-   getRating()
-  }, [commentData])
-  
+      });
+      setAverageRating((total / count).toFixed(2));
+      return averageRating;
+    };
+    getRating();
+  }, [commentData]);
+
   const userNameMaker = () => {
     const a = ["Small", "Blue", "Black", "Fast", "Rocket", "Car", "Moon", "Cup", "Rose", "Orange", "Custard"];
     const b = ["Bear", "Dog", "Banana", "Cucumber", "Lion", "Sauce", "Pink", "Guitar", "Man", "Spider", "Cream"];
@@ -62,15 +63,14 @@ export default function CommentsBox() { //pass gameId here as props
       setComments("");
       setRating("0");
     }
-    setIsChecked(true)
+    setIsChecked(true);
   };
 
   const handleRatingChange = (e) => {
-    setRating(e.target.value)
-    setIsChecked(false)
-  }
-  
-        
+    setRating(e.target.value);
+    setIsChecked(false);
+  };
+
   return (
     <>
       <div className="d-flex flex-column w-75 p-1">
@@ -98,7 +98,7 @@ export default function CommentsBox() { //pass gameId here as props
               <label for="star1"></label>
               <input type="radio" id="star0" name="rating" value="0" checked={isChecked} />
               <label for="star0" style={{ display: "none" }}></label>
-              <h6 style={{ color: "white", paddingTop: "0.5em"}}>Your rating:</h6>
+              <h6 style={{ color: "white", paddingTop: "0.5em" }}>Your rating:</h6>
             </div>
             <button className="btn btn-dark w-25" style={{ maxWidth: "8em" }} onClick={handleClick}>
               Submit
@@ -111,7 +111,7 @@ export default function CommentsBox() { //pass gameId here as props
             return (
               <>
                 <div className="comments">
-                  <h6 className='userName'>{each.userName}</h6>
+                  <h6 className="userName">{each.userName}</h6>
                   {each.comments}
                   <h6>
                     <div className="d-flex justify-content-between pt-3">
@@ -120,7 +120,6 @@ export default function CommentsBox() { //pass gameId here as props
                     </div>
                   </h6>
                 </div>
-                
               </>
             );
           }
