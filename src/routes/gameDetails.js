@@ -28,8 +28,7 @@ function GameDetails() {
     )
 
     return (
-        <div>
-            <h1>Game Details</h1>
+          <div className='d-flex flex-wrap'>
             {game !== null && <GameCard game={game} />}
         </div>
     )
