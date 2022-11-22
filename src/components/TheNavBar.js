@@ -38,7 +38,7 @@ function TheNavBar() {
 
     return (
         <div>
-            <Navbar bg="dark" variant="dark">
+            <Navbar bg="dark" variant="dark" fixed="top">
                 <Navbar.Brand href="#home">Games of 2022</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="#home">Home</Nav.Link>
