@@ -1,22 +1,34 @@
-
-import './App.css';
-import { GameDetails } from './routes/gameDetails';
-import "bootstrap/dist/css/bootstrap.css"
-import React, { useEffect, useState } from "react"
-import "bootstrap/dist/css/bootstrap.css"
-import { GamePagination } from './components/GamePagination';
-import {TheNavBar} from './components/TheNavBar'
-import {SearchFilterBar} from './components/SearchFilterBar'
+import "./App.css";
+import { GameDetails } from "./routes/gameDetails";
+import "bootstrap/dist/css/bootstrap.css";
+import React, { useEffect, useState, useContext } from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import { GamePagination } from "./components/GamePagination";
+import { TheNavBar } from "./components/TheNavBar";
+import { SearchFilterBar } from "./components/SearchFilterBar";
+import About from "./routes/About";
+import Contact from "./routes/Contact";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SingleGameDetails from "./routes/SingleGameDetails";
+import { CommentProvider } from "./CommentProvider";
 
 function App() {
-
   return (
     <>
-      <TheNavBar/>
-      <SearchFilterBar/>
-      <GameDetails />
+      <CommentProvider>
+        <BrowserRouter>
+          <TheNavBar />
+          <SearchFilterBar />
+          <Routes>
+            <Route path="/" element={<GameDetails />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/:id" element={<SingleGameDetails />} />
+          </Routes>
+        </BrowserRouter>
+      </CommentProvider>
     </>
-  )
+  );
 }
 
 export default App;
