@@ -11,7 +11,13 @@ import WebIcon from "@mui/icons-material/Web";
 function GameCard({ game }) {
   return (
     <>
-      {game.map((game) => (
+      {game.filter((game) => {
+        // filter with name currently in searchbar
+        // useContext here
+        // game.title === INPUT_FROM_SEARCH
+      })
+      // then map
+      .map((game) => (
         <div className="b-game-card">
           <Card.Body
             className="b-game-card__cover"
