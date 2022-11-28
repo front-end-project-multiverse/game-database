@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { CommentContext } from "../CommentProvider";
+import { CommentContext } from "../context/CommentProvider";
 
 export default function CommentsBox({ gameId }) {
   const { commentData, addComment } = useContext(CommentContext);

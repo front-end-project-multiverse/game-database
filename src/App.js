@@ -10,7 +10,7 @@ import About from "./routes/About";
 import Contact from "./routes/Contact";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SingleGameDetails from "./routes/SingleGameDetails";
-import { CommentProvider } from "./CommentProvider";
+import { CommentProvider } from "./context/CommentProvider";
 
 function App() {
   return (
