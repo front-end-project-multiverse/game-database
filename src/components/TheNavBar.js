@@ -36,6 +36,9 @@ function TheNavBar() {
 
     //only render games that match category selected
 
+    // IF ALL is seelcted then fetch all rather than fetch category, means we dont have to render twice:
+    {/* {game !== null && <GameCard game={game} />} */}
+
     return (
         <div>
             <Navbar bg="dark" variant="dark" fixed="top">
@@ -44,6 +47,7 @@ function TheNavBar() {
                     <Nav.Link href="#home">Home</Nav.Link>
                     <NavDropdown title="Categories" id="basic-nav-dropdown">
                         <NavDropdown.Item onClick={() => setCategory("Strategy")}>Strategy</NavDropdown.Item>
+                        <NavDropdown.Item onClick={() => setCategory("All")}>All</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => setCategory("Sports")}>Sports</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => setCategory("Racing")}>Racing</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => setCategory("Fighting")}>Fighting</NavDropdown.Item>

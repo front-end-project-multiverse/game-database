@@ -1,10 +1,22 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import React, { useEffect, useState } from "react"
 
-function SearchFilterBar() {
+function SearchFilterBar({names}) {
     // array of game names
     // set state input in the search bar
     // go through array of game names and render cards with name
+
+    const [name, setName] = useState("")
+    // may need react context  so can leverage this name state within GetAllGames so we can filter
+
+    const onSearchInput = (e) => {
+      setName(e.target.value.toLowerCase())
+    }
+    const resetInput = (e) => {
+      setName("")
+      document.getElementById("search-bar").value = "";
+    }
 
     return (
       <>
@@ -12,11 +24,13 @@ function SearchFilterBar() {
         <Form className="d-flex">
             <Form.Control
             type="search"
-            placeholder="Search"
+            placeholder="Search for a game..."
             className="me-2"
+            id="search-bar"
             aria-label="Search"
+            onChange={onSearchInput}
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" onClick={resetInput}>Clear</Button>
         </Form>
       </div>
       </>

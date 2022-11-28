@@ -1,6 +1,6 @@
 
 import './App.css';
-import { GameDetails } from './routes/gameDetails';
+import { GetAllGames } from './routes/GetAllGames';
 import "bootstrap/dist/css/bootstrap.css"
 import React, { useEffect, useState } from "react"
 import "bootstrap/dist/css/bootstrap.css"
@@ -14,7 +14,7 @@ function App() {
     <>
       <TheNavBar/>
       <SearchFilterBar/>
-      <GameDetails />
+      <GetAllGames />
     </>
   )
 }
