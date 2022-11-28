@@ -6,7 +6,7 @@ import { Card } from "react-bootstrap";
 import AddIcon from "@mui/icons-material/Add";
 import DesktopWindowsIcon from "@mui/icons-material/DesktopWindows";
 import WebIcon from "@mui/icons-material/Web";
-
+import { Link } from "react-router-dom";
 
 function GameCard({ game }) {
   return (
@@ -24,10 +24,13 @@ function GameCard({ game }) {
             style={{ color: "#A6ACCD", background: "#090B10", margin: "0.5em", padding: "0em 1em 0em 1em" }}
           >
             <div className="d-flex justify-content-end pt-2">
-              <AddIcon />
+              <AddIcon onClick={() => alert("Add function here")} />
             </div>
-            <Card.Title className="text-truncate pb-2" style={{ color: "#80CBC4" }}>
-              {game.title}
+            <Card.Title className="text-truncate pb-2">
+              <Link to={`/${game.id}`} style={{ textDecoration: "none", color: "#80CBC4" }}>
+                {" "}
+                {game.title}
+              </Link>
             </Card.Title>
 
             <Card.Img variant="top" src={game.thumbnail} />
@@ -42,7 +45,7 @@ function GameCard({ game }) {
                   borderRadius: "12px",
                   backgroundColor: "#80CBC4",
                   color: "black",
-                  paddingTop: "0.1em"
+                  paddingTop: "0.1em",
                 }}
               >
                 {game.genre}

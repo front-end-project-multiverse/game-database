@@ -1,9 +1,11 @@
 //render games based on category clicked on by navbar
 import React, { useEffect, useState } from "react"
-import { GameCard } from "./gameCard"
+import { GameCard } from "./GameCard"
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavDropdown } from "react-bootstrap";
+import { NavLink } from 'react-router-dom';
+
 
 function TheNavBar() {
 
@@ -44,9 +46,10 @@ function TheNavBar() {
     return (
         <div>
             <Navbar bg="dark" variant="dark" fixed="top">
-                <Navbar.Brand href="#home">Games of 2022</Navbar.Brand>
+            
                 <Nav className="mr-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
+                <NavLink to ='/about' className="nav-link" style={{fontWeight: 600}}>Games of 2022</NavLink>
+                    <NavLink to ='/' className="nav-link">Home</NavLink>
                     <NavDropdown title="Categories" id="basic-nav-dropdown">
                         <NavDropdown.Item onClick={() => setCategory("Strategy")}>Strategy</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => setCategory("All")}>All</NavDropdown.Item>
@@ -64,10 +67,10 @@ function TheNavBar() {
                         <NavDropdown.Item onClick={() => setCategory("Racing")}>Racing</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => setCategory("Sports")}>Sports</NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link href="/about">About</Nav.Link>
-                    <Nav.Link href="/contact">Contact</Nav.Link>
-                    <Nav.Link href="/login">Login</Nav.Link>
-                    <Nav.Link href="/register">Register</Nav.Link>
+                    <NavLink to ='/about' className="nav-link">About</NavLink>
+                    <NavLink to ='/contact' className="nav-link">Contact</NavLink>
+                    <NavLink to ='/login' className="nav-link">Login</NavLink>
+                    <NavLink to ='/register' className="nav-link">Register</NavLink>
                 </Nav>
             </Navbar>
             <div className='d-flex flex-wrap'>

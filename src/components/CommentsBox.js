@@ -1,14 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { CommentContext } from "../CommentProvider";
 
-export default function CommentsBox() {
-  //pass gameId here as props
-
-  const gameId = 2;
-  const [commentData, setCommentData] = useState([
-    { id: 1, rating: 5, userName: "SmallBananaMan", comments: "not very good", date: "11/11/2022" },
-    { id: 2, rating: 4, userName: "OrangeTuna", comments: "lots of fun", date: "07/05/2022" },
-    { id: 3, rating: 3, userName: "DogBlue", comments: "i didnt enjoy it", date: "30/10/2022" },
-  ]);
+export default function CommentsBox({ gameId }) {
+  const { commentData, addComment } = useContext(CommentContext);
   const [rating, setRating] = useState("0");
   const [comments, setComments] = useState("");
   const [isChecked, setIsChecked] = useState(true);
@@ -59,7 +53,7 @@ export default function CommentsBox() {
         date: date,
       };
 
-      setCommentData([...commentData, newComment]);
+      addComment(newComment);
       setComments("");
       setRating("0");
     }
@@ -73,8 +67,10 @@ export default function CommentsBox() {
 
   return (
     <>
-      <div className="d-flex flex-column w-75 p-1">
-        <h5 style={{ color: "white" }}>Overall rating: {averageRating}</h5>
+      <div className="d-flex flex-column  p-1">
+        <h5 style={{ color: "white", marginLeft: "0.4em" }}>
+          Overall rating: {averageRating === "NaN" ? "No rating" : averageRating}
+        </h5>
         <div>
           <textarea
             className="comments"
@@ -87,18 +83,18 @@ export default function CommentsBox() {
           <div className="d-flex justify-content-end pb-3 pt-2">
             <div className="rating">
               <input type="radio" id="star5" name="rating" value="5" onClick={(e) => handleRatingChange(e)} />
-              <label for="star5"></label>
+              <label htmlFor="star5"></label>
               <input type="radio" id="star4" name="rating" value="4" onClick={(e) => handleRatingChange(e)} />
-              <label for="star4"></label>
+              <label htmlFor="star4"></label>
               <input type="radio" id="star3" name="rating" value="3" onClick={(e) => handleRatingChange(e)} />
-              <label for="star3"></label>
+              <label htmlFor="star3"></label>
               <input type="radio" id="star2" name="rating" value="2" onClick={(e) => handleRatingChange(e)} />
-              <label for="star2"></label>
+              <label htmlFor="star2"></label>
               <input type="radio" id="star1" name="rating" value="1" onClick={(e) => handleRatingChange(e)} />
-              <label for="star1"></label>
-              <input type="radio" id="star0" name="rating" value="0" checked={isChecked} />
-              <label for="star0" style={{ display: "none" }}></label>
-              <h6 style={{ color: "white", paddingTop: "0.5em" }}>Your rating:</h6>
+              <label htmlFor="star1"></label>
+              <input type="radio" id="star0" name="rating" value="0" checked={isChecked} readOnly />
+              <label htmlFor="star0" style={{ display: "none" }}></label>
+              <h6 style={{ color: "white", paddingTop: "0.5em", marginLeft: "0.4em" }}>Your rating:</h6>
             </div>
             <button className="btn btn-dark w-25" style={{ maxWidth: "8em" }} onClick={handleClick}>
               Submit
@@ -106,21 +102,19 @@ export default function CommentsBox() {
           </div>
         </div>
 
-        {commentData.map((each) => {
+        {commentData.map((each, index) => {
           if (each.id === gameId) {
             return (
-              <>
-                <div className="comments">
-                  <h6 className="userName">{each.userName}</h6>
-                  {each.comments}
-                  <h6>
-                    <div className="d-flex justify-content-between pt-3">
-                      <div>Rating: {each.rating} out of 5</div>
-                      {each.date}
-                    </div>
-                  </h6>
-                </div>
-              </>
+              <div className="comments" key={index}>
+                <h6 className="userName">{each.userName}</h6>
+                {each.comments}
+                <h6>
+                  <div className="d-flex justify-content-between pt-3">
+                    <div>Rating: {each.rating} out of 5</div>
+                    {each.date}
+                  </div>
+                </h6>
+              </div>
             );
           }
         })}

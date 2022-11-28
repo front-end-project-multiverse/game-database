@@ -44,6 +44,7 @@ code {
   will-change: transform;
   transform: skewX(0.001deg);
   transition: transform 0.35s ease-in-out;
+  /* pointer-events: none;  */
 }
 
 .b-game-card__cover::after {
@@ -59,6 +60,7 @@ code {
   transform: translateY(-20%);
   will-change: transform;
   transition: transform 0.65s cubic-bezier(0.18, 0.9, 0.58, 1);
+  pointer-events: none; 
 }
 
 .b-game-card:hover .b-game-card__cover {
@@ -133,4 +135,22 @@ code {
 .userName {
   color: white;
   text-shadow: 2px 2px 5px black;
+}
+
+.singleGame {
+  color: rgb(173, 164, 164);
+}
+
+.singleGame h5, h4 {
+  color: white
+}
+
+.nav-link {
+  display: block;
+  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+  font-size: var(--bs-nav-link-font-size);
+  font-weight: var(--bs-nav-link-font-weight);
+  color: var(--bs-nav-link-color);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
