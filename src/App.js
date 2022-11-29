@@ -12,10 +12,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SingleGameDetails from "./routes/SingleGameDetails";
 import { CommentProvider } from "./context/CommentProvider";
 import  {NameSearchProvider} from './context/NameSearchProvider';
+import { LightModeProvider } from "./context/LightModeContext";
 
 function App() {
   return (
         <NameSearchProvider>
+          <LightModeProvider>
           <CommentProvider>
           <BrowserRouter>
             <TheNavBar />
@@ -28,6 +30,7 @@ function App() {
             </Routes>
           </BrowserRouter>
         </CommentProvider>
+        </LightModeProvider>
       </NameSearchProvider>
   );
 }

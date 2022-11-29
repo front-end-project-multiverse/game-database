@@ -1,13 +1,16 @@
 //render games based on category clicked on by navbar
-import React, { useEffect, useState } from "react"
-import { GameCard } from "./GameCard"
+import React, { useContext, useState } from "react"
+import { GameCard } from "./gameCard"
+import Button from 'react-bootstrap/Button'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavDropdown } from "react-bootstrap";
 import { NavLink } from 'react-router-dom';
+import {LightModeContext} from '../context/LightModeContext'
 
 
 function TheNavBar() {
+    const {lightMode, toggleLightMode} = useContext(LightModeContext)
 
     //fetch data from API based on category selected
     const [game, setGame] = useState(null)
@@ -45,7 +48,11 @@ function TheNavBar() {
 
     return (
         <div>
-            <Navbar bg="dark" variant="dark" fixed="top">
+            <Navbar 
+                bg={lightMode ? "light" : "dark"} 
+                variant={lightMode ? "light" : "dark"} 
+                fixed="top"
+                >
             
                 <Nav className="mr-auto">
                 <NavLink to ='/about' className="nav-link" style={{fontWeight: 600}}>Games of 2022</NavLink>
@@ -72,6 +79,9 @@ function TheNavBar() {
                     <NavLink to ='/login' className="nav-link">Login</NavLink>
                     <NavLink to ='/register' className="nav-link">Register</NavLink>
                 </Nav>
+                {lightMode ? 
+                    <Button variant="outline-dark" onClick={toggleLightMode}>Dark</Button> : 
+                    <Button variant="outline-light" onClick={toggleLightMode}>Light</Button>}
             </Navbar>
             <div className='d-flex flex-wrap'>
             {/* {game !== null && <GameCard game={game} />} */}
