@@ -10,14 +10,21 @@ import { Link } from "react-router-dom";
 import  { NameSearchContext } from '../context/NameSearchProvider';
 
 function GameCard({ game }) {
-  const {name, setName} = useContext(NameSearchContext)
+  // probs rename this context to better reflect what it does now
+  const {name, setName, category, setCategory} = useContext(NameSearchContext)
+  console.log("category is " + category)
+  console.log("name is " + name)
+  console.log(game)
   return (
     <>
       {game.filter((game) => {
         // filter with name currently in searchbar
         // useContext here
         let title = game.title.toLowerCase();
-        return game === "ALL" ? game : title.indexOf(name) > -1;
+        return name === "ALL" ? game : title.indexOf(name) > -1;
+      })
+      .filter((game) => {
+        return category === "ALL" ? game : category.toLowerCase() === game.genre.toLowerCase()
       })
       // then map
       .map((game) => (

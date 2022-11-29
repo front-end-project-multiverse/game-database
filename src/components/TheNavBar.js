@@ -1,47 +1,13 @@
 //render games based on category clicked on by navbar
-import React, { useEffect, useState } from "react"
-import { GameCard } from "./GameCard"
+import React, { useEffect, useState, useContext } from "react"
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavDropdown } from "react-bootstrap";
 import { NavLink } from 'react-router-dom';
-
+import  {NameSearchContext} from '../context/NameSearchProvider';
 
 function TheNavBar() {
-
-    //fetch data from API based on category selected
-    const [game, setGame] = useState(null)
-    const [category, setCategory] = useState("shooter")
-
-    // better way of setting category would be to just .filter() all games to stop multiple fetching
-
-    // async function fetchData() {
-    //     await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${category}`, {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Access-Control-Allow-Origin": "*",
-    //             "Access-Control-Allow-Methods": "GET, OPTIONS, POST, PUT",
-    //             'X-RapidAPI-Key': '9ca1093946msh6ac41c1e7eb41e3p1d009bjsnccd03c100be5',
-    //             'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
-    //         },
-    //     })
-    //         .then((response) => response.json())
-    //         .then(data => setGame(data))
-    //     console.log(category) //testing that the correct category is being selected
-    // }
-
-    // useEffect(() => {
-    //     fetchData()
-    // }, [category]
-    // )
-    // console.log(game) //testing that the correct category is being selected
-
-
-    //only render games that match category selected
-
-    // IF ALL is seelcted then fetch all rather than fetch category, means we dont have to render twice:
-    {/* {game !== null && <GameCard game={game} />} */}
+    const {category, setCategory} = useContext(NameSearchContext)
 
     return (
         <div>
@@ -51,8 +17,8 @@ function TheNavBar() {
                 <NavLink to ='/about' className="nav-link" style={{fontWeight: 600}}>Games of 2022</NavLink>
                     <NavLink to ='/' className="nav-link">Home</NavLink>
                     <NavDropdown title="Categories" id="basic-nav-dropdown">
+                        <NavDropdown.Item onClick={() => setCategory("ALL")}>All</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => setCategory("Strategy")}>Strategy</NavDropdown.Item>
-                        <NavDropdown.Item onClick={() => setCategory("All")}>All</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => setCategory("Sports")}>Sports</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => setCategory("Racing")}>Racing</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => setCategory("Fighting")}>Fighting</NavDropdown.Item>
@@ -73,9 +39,6 @@ function TheNavBar() {
                     <NavLink to ='/register' className="nav-link">Register</NavLink>
                 </Nav>
             </Navbar>
-            <div className='d-flex flex-wrap'>
-            {/* {game !== null && <GameCard game={game} />} */}
-        </div>
         </div>
     )
 }

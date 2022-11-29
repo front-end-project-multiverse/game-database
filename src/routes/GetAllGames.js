@@ -20,6 +20,22 @@ function GetAllGames() {
             .then(data => setGame(data))
     }
 
+        // async function fetchData() {
+    //     await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${category}`, {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Access-Control-Allow-Origin": "*",
+    //             "Access-Control-Allow-Methods": "GET, OPTIONS, POST, PUT",
+    //             'X-RapidAPI-Key': '9ca1093946msh6ac41c1e7eb41e3p1d009bjsnccd03c100be5',
+    //             'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+    //         },
+    //     })
+    //         .then((response) => response.json())
+    //         .then(data => setGame(data))
+    //     console.log(category) //testing that the correct category is being selected
+    // }
+
     useEffect(() => {
         fetchData()
 
