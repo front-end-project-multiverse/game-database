@@ -1,20 +1,25 @@
 //use Bootstrap Card component to display game info
 
-import React from "react";
+import React, {useContext} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { Card } from "react-bootstrap";
 import AddIcon from "@mui/icons-material/Add";
 import DesktopWindowsIcon from "@mui/icons-material/DesktopWindows";
 import WebIcon from "@mui/icons-material/Web";
 import { Link } from "react-router-dom";
+import  { NameSearchContext } from '../context/NameSearchProvider';
 
 function GameCard({ game }) {
+  const {name, setName} = useContext(NameSearchContext)
   return (
     <>
       {game.filter((game) => {
         // filter with name currently in searchbar
         // useContext here
-        // game.title === INPUT_FROM_SEARCH
+        // game.title.includes(name)
+        console.log(game)
+        let title = game.title.toLowerCase();
+        return game === "ALL" ? game : title.indexOf(name) > -1;
       })
       // then map
       .map((game) => (

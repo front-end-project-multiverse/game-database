@@ -1,13 +1,14 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
+import  { NameSearchContext } from '../context/NameSearchProvider';
 
-function SearchFilterBar({names}) {
+function SearchFilterBar() {
     // array of game names
     // set state input in the search bar
     // go through array of game names and render cards with name
 
-    const [name, setName] = useState("")
+    const {name, setName} = useContext(NameSearchContext)
     // may need react context  so can leverage this name state within GetAllGames so we can filter
 
     const onSearchInput = (e) => {
