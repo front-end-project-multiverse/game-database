@@ -7,8 +7,8 @@ export default function Wishlist() {
   const { wishlist } = useContext(WishlistContext);
 
   return (
-    <>
+    <div className='d-flex flex-wrap'>
     <GameCard game={wishlist} />
-    </>
+    </div>
   )
 }
