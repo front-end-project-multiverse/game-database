@@ -94,7 +94,7 @@ export default function CommentsBox({ gameId }) {
               <label htmlFor="star1"></label>
               <input type="radio" id="star0" name="rating" value="0" checked={isChecked} readOnly />
               <label htmlFor="star0" style={{ display: "none" }}></label>
-              <h6 style={{ color: "white", paddingTop: "0.5em"}}>Your rating:</h6>
+              <h6 style={{ color: "white", paddingTop: "0.5em" }}>Your rating:</h6>
             </div>
             <button className="btn btn-dark w-25" style={{ maxWidth: "8em" }} onClick={handleClick}>
               Submit
