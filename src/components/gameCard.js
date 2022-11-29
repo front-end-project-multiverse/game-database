@@ -1,6 +1,6 @@
 //use Bootstrap Card component to display game info
 
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { Card } from "react-bootstrap";
 import AddIcon from "@mui/icons-material/Add";
@@ -87,6 +87,66 @@ function GameCard({ game }) {
           </Card.Body>
         </div>
       ))}
+=======
+import { NameSearchContext } from "../context/NameSearchProvider";
+
+function GameCard({ game }) {
+  const { name, setName } = useContext(NameSearchContext);
+  return (
+    <>
+      {game
+        .filter((game) => {
+          // filter with name currently in searchbar
+          // useContext here
+          let title = game.title.toLowerCase();
+          return game === "ALL" ? game : title.indexOf(name) > -1;
+        })
+        // then map
+        .map((game) => (
+          <div className="b-game-card">
+            <Card.Body
+              className="b-game-card__cover"
+              style={{ color: "#A6ACCD", background: "#090B10", margin: "0.5em", padding: "0em 1em 0em 1em" }}
+            >
+              <div className="d-flex justify-content-end pt-2">
+                <AddIcon onClick={() => alert("Add function here")} />
+              </div>
+              <Link to={`/${game.id}`} style={{ textDecoration: "none", color: "#80CBC4" }}>
+                <Card.Title className="text-truncate pb-2">{game.title}</Card.Title>
+                <Card.Img variant="top" src={game.thumbnail} />
+                <Card.Text className="text-truncate pt-2">{game.short_description}</Card.Text>
+                <div className="d-flex justify-content-center">
+                  <div
+                    className="text-truncate pl-1 pr-1 w-50"
+                    style={{
+                      margin: "0.8em",
+                      textAlign: "center",
+                      borderRadius: "12px",
+                      backgroundColor: "#80CBC4",
+                      color: "black",
+                      paddingTop: "0.1em",
+                    }}
+                  >
+                    {game.genre}
+                  </div>
+                  <div
+                    style={{
+                      margin: "0.8em",
+                      width: "3em",
+                      padding: "0.1em",
+                      textAlign: "center",
+                      borderRadius: "12px",
+                      backgroundColor: "#80CBC4",
+                      color: "black",
+                    }}
+                  >
+                    {game.platform === "PC (Windows)" ? <DesktopWindowsIcon /> : <WebIcon />}
+                  </div>
+                </div>
+              </Link>
+            </Card.Body>
+          </div>
+        ))}
     </>
   );
 }

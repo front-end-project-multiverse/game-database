@@ -68,9 +68,9 @@ export default function CommentsBox({ gameId }) {
   return (
     <>
       <div className="d-flex flex-column  p-1">
-        <h5 style={{ color: "white", marginLeft: "0.4em" }}>
+        <h6 style={{ color: "white", marginBottom: "2em" }}>
           Overall rating: {averageRating === "NaN" ? "No rating" : averageRating}
-        </h5>
+        </h6>
         <div>
           <textarea
             className="comments"
@@ -80,7 +80,7 @@ export default function CommentsBox({ gameId }) {
             value={comments}
           ></textarea>
 
-          <div className="d-flex justify-content-end pb-3 pt-2">
+          <div className="d-flex justify-content-between pb-3 pt-2">
             <div className="rating">
               <input type="radio" id="star5" name="rating" value="5" onClick={(e) => handleRatingChange(e)} />
               <label htmlFor="star5"></label>
@@ -94,7 +94,7 @@ export default function CommentsBox({ gameId }) {
               <label htmlFor="star1"></label>
               <input type="radio" id="star0" name="rating" value="0" checked={isChecked} readOnly />
               <label htmlFor="star0" style={{ display: "none" }}></label>
-              <h6 style={{ color: "white", paddingTop: "0.5em", marginLeft: "0.4em" }}>Your rating:</h6>
+              <h6 style={{ color: "white", paddingTop: "0.5em" }}>Your rating:</h6>
             </div>
             <button className="btn btn-dark w-25" style={{ maxWidth: "8em" }} onClick={handleClick}>
               Submit
