@@ -1,6 +1,6 @@
 //render games based on category clicked on by navbar
 import React, { useContext, useState } from "react"
-import { GameCard } from "./gameCard"
+import { GameCard } from "./GameCard"
 import Button from 'react-bootstrap/Button'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
