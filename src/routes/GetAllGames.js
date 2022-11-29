@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { GameCard } from "../components/GameCard"
 
-function GameDetails() {
+function GetAllGames() {
 
     const [game, setGame] = useState(null)
 
@@ -34,4 +34,4 @@ function GameDetails() {
     )
 }
 
-export { GameDetails }
+export { GetAllGames }
