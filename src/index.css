@@ -91,7 +91,7 @@ code {
 }
 
 .rating {
-  width: 310px;
+  width: 270px;
   height: 40px;
   margin-right: 1em;
 }
@@ -122,7 +122,7 @@ code {
   background: rgb(2, 0, 36);
   background: linear-gradient(135deg, rgba(2, 0, 36, 1) 0%, rgba(57, 131, 135, 1) 0%, rgba(32, 108, 124, 1) 100%);
   padding: 0.5em;
-  margin: 0.5em;
+  margin-bottom: 1.5em;
   border-radius: 5px;
   width: 100%;
   box-shadow: 2px 2px 15px rgb(10, 19, 26);
