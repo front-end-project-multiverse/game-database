@@ -9,7 +9,6 @@ function CommentProvider({ children }) {
         { id: "517", rating: 4, userName: "OrangeTuna", comments: "lots of fun", date: "07/05/2022" },
         { id: "521", rating: 3, userName: "DogBlue", comments: "i didnt enjoy it", date: "30/10/2022" },
       ]);
-  console.log(commentData);
     function addComment(newComment) {
       setCommentData([...commentData, newComment]);
     }
