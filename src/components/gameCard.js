@@ -21,8 +21,8 @@ function GameCard({ game }) {
           return game === "ALL" ? game : title.indexOf(name) > -1;
         })
         // then map
-        .map((game) => (
-          <div className="b-game-card">
+        .map((game, idx) => (
+          <div key={idx} className="b-game-card">
             <Card.Body
               className="b-game-card__cover"
               style={{ color: "#A6ACCD", background: "#090B10", margin: "0.5em", padding: "0em 1em 0em 1em" }}
