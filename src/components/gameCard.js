@@ -16,8 +16,6 @@ function GameCard({ game }) {
       {game.filter((game) => {
         // filter with name currently in searchbar
         // useContext here
-        // game.title.includes(name)
-        console.log(game)
         let title = game.title.toLowerCase();
         return game === "ALL" ? game : title.indexOf(name) > -1;
       })
