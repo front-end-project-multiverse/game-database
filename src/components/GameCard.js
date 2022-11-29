@@ -4,13 +4,16 @@ import React, { useContext } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { Card } from "react-bootstrap";
 import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from '@mui/icons-material/Remove';
 import DesktopWindowsIcon from "@mui/icons-material/DesktopWindows";
 import WebIcon from "@mui/icons-material/Web";
 import { Link } from "react-router-dom";
 import { NameSearchContext } from "../context/NameSearchProvider";
 import { LightModeContext } from "../context/LightModeContext";
+import { WishlistContext } from "../context/WishlistProvider";
 
 function GameCard({ game }) {
+  const { wishlist, addToWishlist, removeFromWishlist } = useContext(WishlistContext);
   const { name, setName } = useContext(NameSearchContext);
   const { lightMode, toggleLightMode } = useContext(LightModeContext);
   return (
@@ -34,7 +37,9 @@ function GameCard({ game }) {
               }
             >
               <div className="d-flex justify-content-end pt-2">
-                <AddIcon onClick={() => alert("Add function here")} />
+                {!wishlist.find((e)=>e === game) ? 
+                (<AddIcon onClick={() => addToWishlist(game)} />) :
+                (<RemoveIcon onClick={() => removeFromWishlist(game)} />)}
               </div>
               <Card.Title className="text-truncate pb-2">
                 <Link
