@@ -4,13 +4,16 @@ import React, { useContext } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { Card } from "react-bootstrap";
 import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from '@mui/icons-material/Remove';
 import DesktopWindowsIcon from "@mui/icons-material/DesktopWindows";
 import WebIcon from "@mui/icons-material/Web";
 import { Link } from "react-router-dom";
 import { NameSearchContext } from "../context/NameSearchProvider";
 import { LightModeContext } from "../context/LightModeContext";
+import { WishlistContext } from "../context/WishlistProvider";
 
 function GameCard({ game }) {
+  const { wishlist, addToWishlist, removeFromWishlist } = useContext(WishlistContext);
   const { name, setName } = useContext(NameSearchContext);
   const { lightMode, toggleLightMode } = useContext(LightModeContext);
   return (
@@ -23,8 +26,8 @@ function GameCard({ game }) {
           return game === "ALL" ? game : title.indexOf(name) > -1;
         })
         // then map
-        .map((game) => (
-          <div className="b-game-card">
+        .map((game, idx) => (
+          <div className="b-game-card" key={idx}>
             <Card.Body
               className="b-game-card__cover"
               style={
@@ -34,7 +37,9 @@ function GameCard({ game }) {
               }
             >
               <div className="d-flex justify-content-end pt-2">
-                <AddIcon onClick={() => alert("Add function here")} />
+                {!wishlist.find((e)=>e === game) ? 
+                (<AddIcon onClick={() => addToWishlist(game)} />) :
+                (<RemoveIcon onClick={() => removeFromWishlist(game)} />)}
               </div>
               <Card.Title className="text-truncate pb-2">
                 <Link
@@ -50,7 +55,7 @@ function GameCard({ game }) {
                 </Link>
               </Card.Title>
 
-              <Card.Img variant="top" src={game.thumbnail} />
+              <Card.Img variant="top" src={game.thumbnail} alt="game thumbnail"/>
               <Card.Text className="text-truncate pt-2" style={lightMode ? { color: "#030505" } : null}>
                 {game.short_description}
               </Card.Text>

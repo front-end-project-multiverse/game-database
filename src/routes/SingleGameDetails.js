@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -46,15 +46,17 @@ export default function SingleGameDetails() {
           backgroundSize: "100%",
         }}
       >
+        <Link to="/" style={{textDecoration: "none", color: "white" }}>← Back to all games</Link>
         <Row>
           <Col xs={5} className="mt-2">
-            <img src={image} width="100%" />
+            <img src={image} width="100%" alt="game background"/>
             <div>
               <img
                 src={game.thumbnail}
                 width="115"
                 onClick={() => setImage(game.thumbnail)}
                 style={{ margin: "0.2em" }}
+                alt="game thumbnail image"
               />
               {game.screenshots.map((each, idx) => {
                 return (
@@ -64,6 +66,7 @@ export default function SingleGameDetails() {
                     onClick={() => setImage(each.image)}
                     style={{ margin: "0.2em" }}
                     key={idx}
+                    alt="game screenshot"
                   />
                 );
               })}

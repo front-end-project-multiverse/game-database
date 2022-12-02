@@ -55,7 +55,7 @@ function TheNavBar() {
                 >
             
                 <Nav className="mr-auto">
-                <NavLink to ='/about' className="nav-link" style={{fontWeight: 600}}>Games of 2022</NavLink>
+                <NavLink className="nav-link" style={{fontWeight: 600}}>Games of 2022</NavLink>
                     <NavLink to ='/' className="nav-link">Home</NavLink>
                     <NavDropdown title="Categories" id="basic-nav-dropdown">
                         <NavDropdown.Item onClick={() => setCategory("Strategy")}>Strategy</NavDropdown.Item>
@@ -76,8 +76,7 @@ function TheNavBar() {
                     </NavDropdown>
                     <NavLink to ='/about' className="nav-link">About</NavLink>
                     <NavLink to ='/contact' className="nav-link">Contact</NavLink>
-                    <NavLink to ='/login' className="nav-link">Login</NavLink>
-                    <NavLink to ='/register' className="nav-link">Register</NavLink>
+                    <NavLink to ='/wishlist' className="nav-link">Wishlist</NavLink>
                 </Nav>
                 {lightMode ? 
                     <Button variant="outline-dark" onClick={toggleLightMode}>Dark</Button> : 

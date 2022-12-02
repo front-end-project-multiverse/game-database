@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { GameCard } from "./GameCard";
 import { NameSearchProvider } from "../context/NameSearchProvider";
+import { WishlistProvider } from "../context/WishlistProvider";
+import { LightModeProvider } from "../context/LightModeContext";
 import { BrowserRouter } from "react-router-dom";
 
 const testGame = [
@@ -20,11 +22,15 @@ const testGame = [
 ];
 test("GameGard component renders correctly", async () => {
   render(
+    <WishlistProvider>
     <BrowserRouter>
       <NameSearchProvider>
+        <LightModeProvider>
         <GameCard game={testGame} />
+        </LightModeProvider>
       </NameSearchProvider>
     </BrowserRouter>
+    </WishlistProvider>
   );
   expect(screen.getByText("Overwatch 2")).toBeVisible();
   expect(screen.getByText("Shooter")).toBeVisible();

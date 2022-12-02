@@ -22,8 +22,6 @@ function GetAllGames() {
 
     useEffect(() => {
         fetchData()
-
-        console.log(game)
     }, []
     )
 
