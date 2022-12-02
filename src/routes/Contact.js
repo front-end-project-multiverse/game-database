@@ -14,8 +14,9 @@ export default function Contact() {
           <Card.Text>
             {`To contact any member of the team, please reach out to us at our `}
             <a href="https://github.com/front-end-project-multiverse">Github page</a>
-            <p />
-            Or at any of the below: <p />
+            <br/>
+            <br/>
+            Or at any of the below: <br/>
             <FacebookIcon />
             <TwitterIcon />
             <InstagramIcon />

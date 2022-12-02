@@ -8,14 +8,15 @@ export default function About() {
         <Card.Header as="h4">About</Card.Header>
         <Card.Body>
           <Card.Title>The Free Game Database</Card.Title>
-          <Card.Text>
+          <div>
             This free game database was created as part of a group project for a Multiverse Software Engineering
             Apprenticeship. It's main purpose is to demonstrate the skills we have learnt and how we can work together
             through the Software Development Lifecycle.
-            <p />
-            <p />
+            <br/>
+            <br/>
             This was purely a front-end project utilizing the below technologies:
-            <p />
+            <br/>
+            <br/>
             <ul>
               <li>React</li>
               <li>React Router</li>
@@ -24,11 +25,12 @@ export default function About() {
               <li>Material UI</li>
               <li>HTML/CSS/JS</li>
             </ul>
-            <p />
             For project management we used Github Projects.
-            <p />
+            <br/>
+            <br/>
             Created by:
-            <p />
+            <br/>
+            <br/>
             <ul>
               <li>Abdalla Yusuf</li>
               <li>Matthew Eland</li>
@@ -36,7 +38,7 @@ export default function About() {
               <li>Nigel Marongere</li>
               <li>Ryan Curry</li>
             </ul>
-          </Card.Text>
+          </div>
         </Card.Body>
       </Card>
     </div>

@@ -1,7 +1,7 @@
 import "./App.css";
 import { GetAllGames } from "./routes/GetAllGames";
 import "bootstrap/dist/css/bootstrap.css";
-import React, { useEffect, useState, useContext } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { GamePagination } from "./components/GamePagination";
 import { TheNavBar } from "./components/TheNavBar";
@@ -26,7 +26,7 @@ function App() {
             <TheNavBar />
             <SearchFilterBar />
             <Routes>
-                <Route path="/" element={<GetAllGames />} />
+              <Route path="/" element={<GetAllGames />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/:id" element={<SingleGameDetails />} />

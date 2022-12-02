@@ -26,8 +26,8 @@ function GameCard({ game }) {
           return game === "ALL" ? game : title.indexOf(name) > -1;
         })
         // then map
-        .map((game) => (
-          <div className="b-game-card">
+        .map((game, idx) => (
+          <div className="b-game-card" key={idx}>
             <Card.Body
               className="b-game-card__cover"
               style={
@@ -55,7 +55,7 @@ function GameCard({ game }) {
                 </Link>
               </Card.Title>
 
-              <Card.Img variant="top" src={game.thumbnail} />
+              <Card.Img variant="top" src={game.thumbnail} alt="game thumbnail"/>
               <Card.Text className="text-truncate pt-2" style={lightMode ? { color: "#030505" } : null}>
                 {game.short_description}
               </Card.Text>
