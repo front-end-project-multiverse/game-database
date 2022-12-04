@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap";
 export default function About() {
   return (
     <div className="d-flex flex-row justify-content-center mt-5">
-      <Card bg="dark" key="dark" text="white" style={{ width: "50rem" }} className="mb-2">
+      <Card bg="dark" key="dark" text="white" style={{ width: "50rem", "margin-top": "40px" }} className="mb-2">
         <Card.Header as="h4">About</Card.Header>
         <Card.Body>
           <Card.Title>The Free Game Database</Card.Title>

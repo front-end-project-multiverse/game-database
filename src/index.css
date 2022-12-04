@@ -155,6 +155,11 @@ code {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
+.card-wishlist-button svg:hover {
+  border: 1px solid;
+  border-radius: 4px;
+}
+
 @media screen and (max-width: 1000px) {
   .rating label:before {
     font-size: 30px;
