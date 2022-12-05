@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react"
-import { GameCard } from "../components/GameCard"
+import React, { useEffect, useState } from "react";
+import { GameCard } from "../components/GameCard";
+import { SearchFilterBar } from "../components/SearchFilterBar";
 
 function GetAllGames() {
 
@@ -26,9 +27,12 @@ function GetAllGames() {
     )
 
     return (
-          <div className='d-flex flex-wrap'>
-            {game !== null && <GameCard game={game} />}
-        </div>
+        <>
+            <SearchFilterBar />
+            <div className='d-flex flex-wrap'>
+                {game !== null && <GameCard game={game} />}
+            </div>
+        </>
     )
 }
 

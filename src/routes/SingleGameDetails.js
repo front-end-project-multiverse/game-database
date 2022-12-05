@@ -44,6 +44,7 @@ export default function SingleGameDetails() {
         style={{
           backgroundImage: `linear-gradient(to bottom, rgba(20, 20, 20, 0.94), rgba(0, 0, 0, 0.95)), url(${game.screenshots[2].image})`,
           backgroundSize: "100%",
+          "margin-top": "40px"
         }}
       >
         <Link to="/" style={{textDecoration: "none", color: "white" }}>← Back to all games</Link>

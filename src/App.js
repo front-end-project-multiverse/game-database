@@ -5,7 +5,6 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { GamePagination } from "./components/GamePagination";
 import { TheNavBar } from "./components/TheNavBar";
-import { SearchFilterBar } from "./components/SearchFilterBar";
 import About from "./routes/About";
 import Contact from "./routes/Contact";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -24,7 +23,6 @@ function App() {
           <CommentProvider>
           <BrowserRouter>
             <TheNavBar />
-            <SearchFilterBar />
             <Routes>
               <Route path="/" element={<GetAllGames />} />
               <Route path="/about" element={<About />} />
