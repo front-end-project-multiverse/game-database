@@ -39,8 +39,17 @@ function GameCard({ game }) {
             >
               <div className="d-flex justify-content-end pt-2 card-wishlist-button">
                 {!wishlist.find((e)=>e === game) ? 
-                (<ShoppingCartOutlinedIcon onClick={() => addToWishlist(game)} />) :
-                (<ShoppingCartIcon onClick={() => removeFromWishlist(game)} style={{ color: 'gold' }}/>)}
+                (<ShoppingCartOutlinedIcon onClick={() => addToWishlist(game)} 
+                style={
+                  lightMode
+                  ? { color: "black"}
+                  : { color: "grey"}
+                }/>) :
+                (<ShoppingCartIcon onClick={() => removeFromWishlist(game)} style={
+                  lightMode
+                    ? { color: "green"}
+                    : { color: "gold"}
+                }/>)}
               </div>
               <div class="main-card-body">
                 <Link to={`/${game.id}`} style={
