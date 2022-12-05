@@ -3,8 +3,8 @@
 import React, { useContext } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { Card } from "react-bootstrap";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from '@mui/icons-material/Remove';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import DesktopWindowsIcon from "@mui/icons-material/DesktopWindows";
 import WebIcon from "@mui/icons-material/Web";
 import { Link } from "react-router-dom";
@@ -39,8 +39,8 @@ function GameCard({ game }) {
             >
               <div className="d-flex justify-content-end pt-2 card-wishlist-button">
                 {!wishlist.find((e)=>e === game) ? 
-                (<AddIcon onClick={() => addToWishlist(game)} />) :
-                (<RemoveIcon onClick={() => removeFromWishlist(game)} />)}
+                (<ShoppingCartOutlinedIcon onClick={() => addToWishlist(game)} />) :
+                (<ShoppingCartIcon onClick={() => removeFromWishlist(game)} style={{ color: 'gold' }}/>)}
               </div>
               <div class="main-card-body">
                 <Link to={`/${game.id}`} style={

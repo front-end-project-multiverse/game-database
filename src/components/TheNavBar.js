@@ -7,6 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { NavDropdown } from "react-bootstrap";
 import { NavLink } from 'react-router-dom';
 import {LightModeContext} from '../context/LightModeContext'
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 
 function TheNavBar() {
@@ -48,13 +49,14 @@ function TheNavBar() {
 
     return (
         <div>
-            <Navbar 
+            <Navbar expand="lg"
                 bg={lightMode ? "light" : "dark"} 
                 variant={lightMode ? "light" : "dark"} 
                 fixed="top"
+                className="p-2"
                 >
             
-                <Nav className="mr-auto">
+                <Nav className="me-auto">
                 <NavLink className="nav-link" style={{fontWeight: 600}}>Games of 2022</NavLink>
                     <NavLink to ='/' className="nav-link">Home</NavLink>
                     <NavDropdown title="Categories" id="basic-nav-dropdown">
@@ -76,11 +78,13 @@ function TheNavBar() {
                     </NavDropdown>
                     <NavLink to ='/about' className="nav-link">About</NavLink>
                     <NavLink to ='/contact' className="nav-link">Contact</NavLink>
-                    <NavLink to ='/wishlist' className="nav-link">Wishlist</NavLink>
                 </Nav>
-                {lightMode ? 
-                    <Button variant="outline-dark" onClick={toggleLightMode}>Dark</Button> : 
-                    <Button variant="outline-light" onClick={toggleLightMode}>Light</Button>}
+                <Nav>
+                    <NavLink to ='/wishlist' className="nav-link"><span>Wishlist </span> <ShoppingCartOutlinedIcon/></NavLink>
+                    {lightMode ? 
+                        <Button variant="outline-dark" onClick={toggleLightMode}>Dark</Button> : 
+                        <Button variant="outline-light" onClick={toggleLightMode}>Light</Button>}
+                </Nav>
             </Navbar>
             <div className='d-flex flex-wrap'>
             {/* {game !== null && <GameCard game={game} />} */}
