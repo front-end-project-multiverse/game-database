@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card } from "react-bootstrap";
+import { LightModeContext } from "../context/LightModeContext";
 
 export default function About() {
+  const { lightMode } = useContext(LightModeContext);
   return (
     <div className="d-flex flex-row justify-content-center mt-5">
-      <Card bg="dark" key="dark" text="white" style={{ width: "50rem", "margin-top": "40px" }} className="mb-2">
+      <Card bg={lightMode ? "light" : "dark"} key={lightMode ? "light" : "dark"} text={lightMode ? "black" : "white"} style={{ width: "50rem", "margin-top": "40px" }} className="mb-2">
         <Card.Header as="h4">About</Card.Header>
         <Card.Body>
           <Card.Title>The Free Game Database</Card.Title>
